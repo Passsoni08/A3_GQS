@@ -18,7 +18,7 @@ Este repositório contém o código para o trabalho de Gestão de Qualidade de S
 ## Tecnologias Utilizadas
 
 - **Python**: Linguagem de programação principal do projeto.
-- **Unittest**: Framework para a realização de testes unitários no Python.
+- **Unittest**: Framework que será utilizado para a realização de testes unitários no Python.
 - **Git**: Controle de versão para gerenciar o código-fonte.
 
 ## Requisitos
