@@ -1,10 +1,11 @@
-#Código para refatoração
-#Este sistema gerencia uma lista de tarefas, com funcionalidades como 
-#adicionar, listar, filtrar, ordenar e gerar relatórios.
+# Código para refatoração
+# Este sistema gerencia uma lista de tarefas, com funcionalidades como 
+# adicionar, listar, filtrar, ordenar e gerar relatórios.
 
-tasks = []
+tasks = []  # Uso de variável global. Deve ser encapsulada em uma classe.
 
 def add_task():
+    # Responsável por entrada de dados e lógica ao mesmo tempo. Viola SRP (Single Responsibility Principle).
     name = input("Nome da tarefa: ")
     prio = input("Prioridade (baixa, média, alta): ")
     due = input("Data de entrega (YYYY-MM-DD): ")
@@ -12,6 +13,7 @@ def add_task():
     tasks.append(task)
 
 def complete_task(name):
+    # Busca linear e alteração direta em estrutura de dicionário. Pouca coesão.
     for task in tasks:
         if task["name"] == name:
             task["completed"] = True
@@ -24,6 +26,7 @@ def filter_by_priority(priority):
     return [t for t in tasks if t["priority"] == priority]
 
 def get_overdue(current_date):
+    # Comparação de datas como strings pode causar erro
     overdue = []
     for t in tasks:
         if not t["completed"] and t["due_date"] < current_date:
@@ -34,6 +37,7 @@ def sort_tasks():
     return sorted(tasks, key=lambda x: (x["completed"], x["due_date"]))
 
 def generate_report():
+    # Código repetitivo para contagem de prioridades
     print("----- Relatório de Tarefas -----")
     high = 0
     medium = 0
@@ -54,5 +58,6 @@ def generate_report():
     print("Concluídas:", completed)
     print("Total:", len(tasks))
 
-    add_task()
+# Chamada de função no escopo global, com entrada de dados obrigatória
+add_task()
 generate_report()

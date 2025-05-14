@@ -1,1 +1,0 @@
-#Arquivo para refatoração do código
