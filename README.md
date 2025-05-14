@@ -1,27 +1,58 @@
-# A3 - Gestão de Qualidade de Software (GQS)
+# 🧼 Refatoração com Clean Code – Gerenciador de Tarefas
 
-#Aluno:
+**Aluno:** Rafael Vieira Passoni  
+**UC:** Gestão e Qualidade de Software
+**Turma:** Live, segunda e terça 19:00
+**RA:** 12625127819  
 
-Rafael Vieira Passoni
-RA: 12625127819
+## 📄 Descrição
 
-## Descrição
+Este repositório contém o código desenvolvido para a atividade A3 da disciplina **Gestão da Qualidade de Software**.  
+O objetivo do projeto é demonstrar a aplicação dos princípios do **Clean Code** na refatoração de um código-fonte legado, com foco em:
 
-Este repositório contém o código para o trabalho de Gestão de Qualidade de Software (A3). O objetivo deste projeto é **avaliar a capacidade dos alunos de compreender e aplicar os princípios do Clean Code** por meio da refatoração de um código-fonte legado. O foco é melhorar a **legibilidade, manutenibilidade e eficiência do código**, sem alterar sua funcionalidade.
+- Legibilidade
+- Manutenibilidade
+- Eficiência
 
-## Funcionalidades
+## ✅ Funcionalidades
 
-- **Gerenciamento de Tarefas**: Sistema de gerenciamento de tarefas, onde você pode adicionar, listar, concluir, filtrar por prioridade e gerar relatórios.
-- **Clean Code**: Refatoração do código legado aplicando os princípios do Clean Code, utilizando boas práticas de programação.
-- **Testes Automatizados**: Conjunto de testes automatizados para garantir que a refatoração não quebre a funcionalidade do sistema.
+- ✅ Adicionar novas tarefas
+- ✅ Listar tarefas existentes
+- ✅ Marcar tarefas como concluídas
+- ✅ Filtrar tarefas por prioridade
+- ✅ Ordenar por status e data
+- ✅ Gerar relatórios consolidados
+- ✅ Testes automatizados com `unittest`
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-- **Python**: Linguagem de programação principal do projeto.
-- **Unittest**: Framework que será utilizado para a realização de testes unitários no Python.
-- **Git**: Controle de versão para gerenciar o código-fonte.
+- **Python 3.x**
+- **Unittest** (para testes unitários)
+- **Git** (controle de versão)
 
-## Requisitos
 
-- Python 3.x ou superior
-- Git
+## 📦 Estrutura do Projeto
+
+```
+📁 gerenciador.py # Código legado original
+📁 tarefas.py  # Arquivo onde o codigo será refatorado
+📁 test_tarefas.py   # Testes automatizados com unittest
+📁 main.py   # Interface simples para testes no terminal
+```
+
+## 💡 Principais melhorias a serem aplicadas
+
+* Refatoração baseada nos princípios SOLID
+* Separação clara de responsabilidades
+* Eliminação de variáveis globais
+* Introdução de orientação a objetos
+* Código 100% testável com cobertura de funcionalidades
+
+## ✅ Requisitos
+
+* Python 3.x instalado
+* Git instalado (opcional, para clonar o repositório)
+
+
+
+
