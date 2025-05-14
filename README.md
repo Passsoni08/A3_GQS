@@ -37,6 +37,7 @@ O objetivo do projeto é demonstrar a aplicação dos princípios do **Clean Cod
 📁 gerenciador.py # Código legado original
 📁 tarefas.py  # Arquivo onde o codigo será refatorado
 📁 test_tarefas.py   # Testes automatizados com unittest
+📁 main.py   # Interface simples para testes no terminal
 ```
 
 ## 💡 Principais melhorias a serem aplicadas
