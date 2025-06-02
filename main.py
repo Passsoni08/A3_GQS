@@ -1,6 +1,7 @@
 # Interface Simples para teste via terminal
 
 from tarefas import TaskManager
+from datetime import datetime
 
 tm = TaskManager()
 
@@ -20,11 +21,14 @@ while True:
     op = input("Escolha uma opção: ")
 
     if op == "1":
-        nome = input("Nome: ")
-        prioridade = input("Prioridade (baixa, média, alta): ")
-        data = input("Data de entrega (YYYY-MM-DD): ")
-        tm.add_task(nome, prioridade, data)
-        print("Tarefa adicionada!")
+        try:
+            nome = input("Nome: ")
+            prioridade = input("Prioridade (baixa, média, alta): ")
+            data = input("Data de entrega (YYYY-MM-DD): ")
+            tm.add_task(nome, prioridade, data)
+            print("Tarefa adicionada!")
+        except ValueError as e:
+            print(f"Erro: {e}")
 
     elif op == "2":
         print("\nTarefas:")
@@ -32,9 +36,11 @@ while True:
             print(t)
 
     elif op == "3":
-        nome = input("Digite o nome da tarefa a concluir: ")
-        tm.complete_task(nome)
-        print("Tarefa concluída!")
+        tid = input("Digite o início do ID da tarefa a concluir: ")
+        if tm.complete_task(tid):
+            print("Tarefa concluída!")
+        else:
+            print("Tarefa não encontrada.")
 
     elif op == "4":
         prio = input("Prioridade para filtrar: ")
@@ -44,9 +50,13 @@ while True:
 
     elif op == "5":
         data = input("Data atual (YYYY-MM-DD): ")
-        atrasadas = tm.get_overdue(data)
-        for t in atrasadas:
-            print(t)
+        try:
+            datetime.strptime(data, "%Y-%m-%d")
+            atrasadas = tm.get_overdue(data)
+            for t in atrasadas:
+                print(t)
+        except ValueError:
+            print("Formato de data inválido.")
 
     elif op == "6":
         ordenadas = tm.sort_tasks()
