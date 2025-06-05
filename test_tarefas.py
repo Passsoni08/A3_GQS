@@ -4,19 +4,28 @@ import unittest
 from tarefas import TaskManager
 from datetime import datetime
 
-class TestTaskManager(unittest.TestCase):
-    def setUp(self):
+class TestTaskManager(unittest.TestCase): 
+    def setUp(self): 
+        
+        # Este método é executado antes de cada teste e configura uma lista de tarefas de exemplo
+        
         self.tm = TaskManager()
         self.tm.add_task("Estudar", "alta", "2025-05-01")
         self.tm.add_task("Lavar roupa", "média", "2025-04-25")
         self.tm.add_task("Comprar pão", "baixa", "2025-04-28")
 
     def test_add_task(self):
+        
+        # Este teste verifica se uma nova tarefa pode ser adicionada corretamente ao gerenciador
+        
         self.tm.add_task("Nova tarefa", "alta", "2025-06-01")
         self.assertEqual(len(self.tm.tasks), 4)
         self.assertEqual(self.tm.tasks[-1].name, "Nova tarefa")
 
     def test_complete_task(self):
+        
+        # Este teste verifica se uma tarefa pode ser marcada como concluída a partir do ID
+        
         tarefa_id = self.tm.tasks[0].id[:8]
         result = self.tm.complete_task(tarefa_id)
         self.assertTrue(result)
@@ -27,6 +36,9 @@ class TestTaskManager(unittest.TestCase):
         self.assertFalse(result)
 
     def test_filter_by_priority(self):
+        
+        # Este teste valida o filtro de tarefas por prioridade, retornando apenas as que correspondem ao critério
+        
         media = self.tm.filter_by_priority("média")
         self.assertEqual(len(media), 1)
         self.assertEqual(media[0].name, "Lavar roupa")
@@ -45,6 +57,9 @@ class TestTaskManager(unittest.TestCase):
         self.assertTrue(ordenadas[-1].completed)
 
     def test_generate_report(self):
+        
+        # Este teste avalia se o relatório gerado reflete corretamente o estado atual das tarefas
+        
         self.tm.complete_task(self.tm.tasks[0].id[:8])
         relatorio = self.tm.generate_report()
         self.assertEqual(relatorio["Alta prioridade"], 1)
